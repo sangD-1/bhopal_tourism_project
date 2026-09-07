@@ -312,6 +312,19 @@ def test_db():
 
     return "MySQL connection failed"
 
+@app.route("/test-api-db")
+def test_api_db():
+    result = execute_query(
+        "SELECT id, name FROM destinations WHERE id = %s",
+        (3,),
+        fetchone=True
+    )
+
+    return jsonify({
+        "success": True,
+        "result": result
+    })
+
 
 # ==================================================
 # STATIC UPLOAD FILES
