@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Portal - Bhopal Tourism</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+
+<body>
+
+<div class="login-page">
+
+    <!-- LEFT VISUAL BRANDING -->
+    <div class="login-visual">
+        <div class="visual-overlay"></div>
+        <div class="visual-content">
+            <div class="brand-pill">
+                <span class="brand-icon">🏛️</span>
+                <span class="brand-name">Bhopal Tourism</span>
+            </div>
+
+            <h1 class="visual-heading">
+                Step Into the <em>City of Lakes</em>
+            </h1>
+
+            <p class="visual-desc">
+                Access personalized travel itineraries, contribute photographs to our cultural archive, and explore historical monuments preserved across centuries.
+            </p>
+
+            <div class="feature-highlights">
+                <div class="feature-chip">
+                    <span class="chip-icon">🌊</span>
+                    <span>Upper & Lower Lakes</span>
+                </div>
+                <div class="feature-chip">
+                    <span class="chip-icon">🕌</span>
+                    <span>Taj-ul-Masajid</span>
+                </div>
+                <div class="feature-chip">
+                    <span class="chip-icon">🦌</span>
+                    <span>Van Vihar National Park</span>
+                </div>
+            </div>
+
+            <div class="visual-quote">
+                <p>“Bhopal is a harmonious symphony of royal Begum heritage and untouched lake wilderness.”</p>
+                <span>— MP Tourism Heritage Guide</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- RIGHT AUTHENTICATION PANEL -->
+    <div class="login-panel">
+        <div class="login-box">
+
+            <div class="panel-top-nav">
+                <a href="/" class="back-home">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                    <span>Back to Portal</span>
+                </a>
+                <span class="portal-badge">Official Guide</span>
+            </div>
+
+            <!-- TAB SELECTOR -->
+            <div class="auth-tabs">
+                <button type="button" class="tab-btn active" id="tabLogin" onclick="switchAuthMode('login')">
+                    Sign In
+                </button>
+                <button type="button" class="tab-btn" id="tabRegister" onclick="switchAuthMode('register')">
+                    Create Account
+                </button>
+            </div>
+
+            <div class="login-header">
+                <h2 id="authTitle">Welcome Back</h2>
+                <p id="authSubtitle">Enter your credentials to access your Bhopal Tourism account.</p>
+            </div>
+
+            <div id="authAlert" class="auth-alert" style="display: none;"></div>
+
+            <!-- FORM -->
+            <form id="authForm" novalidate>
+
+                <!-- NAME (Shown only on Register) -->
+                <div class="form-group" id="nameGroup" style="display: none;">
+                    <label for="name">Full Name</label>
+                    <div class="input-wrap">
+                        <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        <input type="text" id="name" name="name" placeholder="Raja Bhoj" autocomplete="name">
+                    </div>
+                </div>
+
+                <!-- EMAIL -->
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <div class="input-wrap">
+                        <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        <input type="email" id="email" name="email" placeholder="explorer@bhopaltourism.gov" required autocomplete="email">
+                    </div>
+                </div>
+
+                <!-- PASSWORD -->
+                <div class="form-group">
+                    <div class="label-row">
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="input-wrap">
+                        <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <input type="password" id="password" name="password" placeholder="••••••••" required autocomplete="current-password">
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <span id="btnText">Sign In to Account</span>
+                    <span class="btn-spinner" id="btnSpinner" style="display: none;"></span>
+                </button>
+            </form>
+
+            <div class="admin-callout">
+                <div class="callout-icon">🔐</div>
+                <div class="callout-body">
+                    <strong>Tourism Administrator?</strong>
+                    <p>Log in with your administrator credentials to manage destinations, 3D assets, and media guides.</p>
+                </div>
+            </div>
+
+            <footer class="login-footer">
+                © 2026 Bhopal Tourism Department. All Rights Reserved.
+            </footer>
+
+        </div>
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/login.js') }}"></script>
+
+</body>
+</html>

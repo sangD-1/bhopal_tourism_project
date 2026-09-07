@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhopal Tourism — The City of Lakes & Royal Heritage</title>
+
+    <meta name="description" content="Discover the timeless majesty, serene lakes, architectural marvels, and cultural richness of Bhopal, the royal heart of Madhya Pradesh.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,500;1,600&display=swap" rel="stylesheet">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- =========================================
+         TOP ANNOUNCEMENT BAR
+    ========================================= -->
+    <div class="top-announcement">
+        <div class="container announcement-content">
+            <div class="announcement-left">
+                <span class="pulse-dot"></span>
+                <span>Welcome to Bhopal — Central India's Lake & Heritage Capital</span>
+            </div>
+            <div class="announcement-right">
+                <a href="#contact" class="helpline-link">📞 MP Tourism Helpline: 1800-233-7777</a>
+                <span class="separator">|</span>
+                <span id="navAuthStatus" class="auth-status-chip">
+                    <a href="/login" class="nav-auth-link">Sign In / Register</a>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================
+         STICKY NAVIGATION BAR
+    ========================================= -->
+    <header class="navbar-wrapper" id="mainHeader">
+        <nav class="navbar container">
+            <a href="/" class="brand-logo">
+                <div class="logo-emblem">🏛️</div>
+                <div class="logo-text">
+                    <span class="logo-title">BHOPAL</span>
+                    <span class="logo-sub">City of Lakes</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <div class="nav-menu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#explore" class="nav-link">Explore</a>
+                <a href="#destinations" class="nav-link">Destinations</a>
+                <a href="#experiences" class="nav-link">Experiences</a>
+                <a href="#gallery" class="nav-link">Gallery</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#tips" class="nav-link">Travel Tips</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+
+            <div class="nav-actions">
+                <a href="#destinations" class="nav-cta-btn">
+                    <span>Plan Your Visit</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m9 18 6-6-6-6"/></svg>
+                </a>
+
+                <!-- Mobile Hamburger Button -->
+                <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+        <div class="drawer-header">
+            <div class="brand-logo">
+                <div class="logo-emblem">🏛️</div>
+                <div class="logo-text">
+                    <span class="logo-title">BHOPAL</span>
+                    <span class="logo-sub">Tourism Portal</span>
+                </div>
+            </div>
+            <button class="drawer-close" id="drawerCloseBtn" aria-label="Close menu">&times;</button>
+        </div>
+        <div class="drawer-links">
+            <a href="#home" class="drawer-link active" onclick="closeDrawer()">Home</a>
+            <a href="#explore" class="drawer-link" onclick="closeDrawer()">Explore Categories</a>
+            <a href="#destinations" class="drawer-link" onclick="closeDrawer()">Popular Destinations</a>
+            <a href="#experiences" class="drawer-link" onclick="closeDrawer()">Experiences</a>
+            <a href="#gallery" class="drawer-link" onclick="closeDrawer()">Tourism Gallery</a>
+            <a href="#about" class="drawer-link" onclick="closeDrawer()">About Bhopal</a>
+            <a href="#tips" class="drawer-link" onclick="closeDrawer()">Travel Essentials</a>
+            <a href="#contact" class="drawer-link" onclick="closeDrawer()">Contact & Help</a>
+            <div class="drawer-divider"></div>
+            <a href="/login" class="drawer-auth-btn" id="drawerAuthLink">Sign In / Account</a>
+        </div>
+    </div>
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+    <main>
+        <!-- =========================================
+             CINEMATIC HERO SECTION
+        ========================================= -->
+        <section class="hero-section" id="home">
+            <div class="hero-backdrop"></div>
+            <div class="hero-overlay"></div>
+
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="badge-icon">🌿</span>
+                        <span>Heart of Incredible India</span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        Discover the Serene Lakes & Royal Heritage of <em>Bhopal</em>
+                    </h1>
+
+                    <p class="hero-subtitle">
+                        Immerse yourself in centuries of Begum dynasties, colossal 11th-century stone monuments, pristine natural lakes, and vibrant tribal arts in India's greenest capital city.
+                    </p>
+
+                    <!-- Quick Search / Explore Bar -->
+                    <div class="hero-search-bar">
+                        <div class="search-input-wrap">
+                            <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                            <input type="text" id="heroSearchInput" placeholder="Search lakes, monuments, museums, temples...">
+                        </div>
+                        <button class="search-submit-btn" id="heroSearchBtn">
+                            <span>Explore Places</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+                        </button>
+                    </div>
+
+                    <!-- Hero Quick Stats -->
+                    <div class="hero-metrics">
+                        <div class="metric-item">
+                            <strong>1000+</strong>
+                            <span>Years of History</span>
+                        </div>
+                        <div class="metric-divider"></div>
+                        <div class="metric-item">
+                            <strong>31.1 km²</strong>
+                            <span>Twin Lakes Span</span>
+                        </div>
+                        <div class="metric-divider"></div>
+                        <div class="metric-item">
+                            <strong>2 UNESCO</strong>
+                            <span>Sites Nearby</span>
+                        </div>
+                        <div class="metric-divider"></div>
+                        <div class="metric-item">
+                            <strong>#1 Green</strong>
+                            <span>Cleanest Capital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================
+             EXPLORE BY CATEGORY SECTION
+        ========================================= -->
+        <section class="section categories-section" id="explore">
+            <div class="container">
+                <div class="section-head text-center">
+                    <span class="sub-tag">CURATED THEMES</span>
+                    <h2 class="section-title">Explore Bhopal by Category</h2>
+                    <p class="section-desc">From soothing lakeside sunsets to thousand-year-old architectural wonders, tailor your journey around what moves you.</p>
+                </div>
+
+                <div class="category-pills" id="categoryFilterBar">
+                    <button class="cat-pill active" data-category="all">
+                        <span class="pill-icon">✨</span>
+                        <span>All Places</span>
+                    </button>
+                    <button class="cat-pill" data-category="Lakes & Nature">
+                        <span class="pill-icon">🌊</span>
+                        <span>Lakes & Nature</span>
+                    </button>
+                    <button class="cat-pill" data-category="Heritage">
+                        <span class="pill-icon">🏛️</span>
+                        <span>Royal Heritage</span>
+                    </button>
+                    <button class="cat-pill" data-category="Museums">
+                        <span class="pill-icon">🎨</span>
+                        <span>Museums & Arts</span>
+                    </button>
+                    <button class="cat-pill" data-category="Religious">
+                        <span class="pill-icon">🕌</span>
+                        <span>Sacred Landmarks</span>
+                    </button>
+                    <button class="cat-pill" data-category="Food & Culture">
+                        <span class="pill-icon">🍲</span>
+                        <span>Culinary & Culture</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================
+             POPULAR DESTINATIONS GRID
+        ========================================= -->
+        <section class="section destinations-section" id="destinations">
+            <div class="container">
+                <div class="section-head-row">
+                    <div>
+                        <span class="sub-tag">ICONIC ATTRACTIONS</span>
+                        <h2 class="section-title">Popular Destinations</h2>
+                        <p class="section-desc">Experience the most celebrated landmarks of Bhopal with detailed itineraries, maps, and multimedia guides.</p>
+                    </div>
+
+                    <div class="destinations-toolbar">
+                        <div class="search-box-compact">
+                            <input type="text" id="destinationFilterInput" placeholder="Filter by keyword...">
+                        </div>
+                        <select id="sortSelect" class="sort-dropdown">
+                            <option value="name-asc">Name (A-Z)</option>
+                            <option value="name-desc">Name (Z-A)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- DYNAMIC CARDS CONTAINER -->
+                <div class="destination-grid" id="destinationContainer">
+                    <div class="loading-state">
+                        <div class="spinner"></div>
+                        <p>Loading Bhopal's iconic destinations...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================
+             WHY VISIT BHOPAL (4 PILLARS)
+        ========================================= -->
+        <section class="section why-bhopal-section">
+            <div class="container">
+                <div class="section-head text-center">
+                    <span class="sub-tag">THE BHOPAL EXPERIENCE</span>
+                    <h2 class="section-title">Why Travel to the City of Lakes?</h2>
+                    <p class="section-desc">A destination where regal history, pristine water reservoirs, and contemporary culture blend seamlessly.</p>
+                </div>
+
+                <div class="pillars-grid">
+                    <div class="pillar-card">
+                        <div class="pillar-icon">🌊</div>
+                        <h3>The Majestic Twin Lakes</h3>
+                        <p>Home to the Bhojtal (Upper Lake), Asia's largest artificial lake constructed in the 11th century by Paramara King Raja Bhoj, surrounded by scenic promenades and boat clubs.</p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-icon">👑</div>
+                        <h3>Century of Begum Rule</h3>
+                        <p>The only princely state governed successively by four generations of enlightened women rulers (1819–1926), who built monumental mosques, palaces, and progressive public institutions.</p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-icon">🏺</div>
+                        <h3>UNESCO World Gateways</h3>
+                        <p>Bhopal serves as the prime hub for UNESCO World Heritage Sites: the 3rd-century BCE Great Stupa at Sanchi and the prehistoric rock shelters of Bhimbetka with 30,000-year-old art.</p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-icon">🌿</div>
+                        <h3>Urban Wildlife & Greenery</h3>
+                        <p>Bhopal boasts Van Vihar National Park seamlessly integrated into city limits along the lake shore, making it one of the greenest and most ecologically rich state capitals in India.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================
+             FEATURED EXPERIENCES
+        ========================================= -->
+        <section class="section experiences-section" id="experiences">
+            <div class="container">
+                <div class="section-head text-center">
+                    <span class="sub-tag">MEMORABLE MOMENTS</span>
+                    <h2 class="section-title">Featured Bhopal Experiences</h2>
+                    <p class="section-desc">Handcrafted adventures you must not miss during your stay.</p>
+                </div>
+
+                <div class="experience-grid">
+                    <div class="exp-card">
+                        <div class="exp-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=700&q=80" alt="Lake boating" loading="lazy">
+                            <span class="exp-badge">Nature & Leisure</span>
+                        </div>
+                        <div class="exp-body">
+                            <h3>Upper Lake Sunset Cruise</h3>
+                            <p>Board an evening cruise at the Madhya Pradesh Tourism Boat Club as golden hour paints the water in shimmering amber and indigo shades.</p>
+                        </div>
+                    </div>
+
+                    <div class="exp-card">
+                        <div class="exp-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1587974928442-77dc3e0dba72?auto=format&fit=crop&w=700&q=80" alt="Van Vihar safari" loading="lazy">
+                            <span class="exp-badge">Eco-Tourism</span>
+                        </div>
+                        <div class="exp-body">
+                            <h3>Bicycle Safari at Van Vihar</h3>
+                            <p>Pedal across the 5 km lake-facing safari road to spot free-roaming tigers, leopards, sloth bears, chital deer, and migratory Siberian birds.</p>
+                        </div>
+                    </div>
+
+                    <div class="exp-card">
+                        <div class="exp-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=700&q=80" alt="Heritage walk" loading="lazy">
+                            <span class="exp-badge">Architecture</span>
+                        </div>
+                        <div class="exp-body">
+                            <h3>Old Walled City Heritage Walk</h3>
+                            <p>Explore Shaukat Mahal's rare Indo-Gothic fusion, the regal arches of Sadar Manzil, and Asia's grandest mosque, the majestic Taj-ul-Masajid.</p>
+                        </div>
+                    </div>
+
+                    <div class="exp-card">
+                        <div class="exp-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=700&q=80" alt="Culinary trail" loading="lazy">
+                            <span class="exp-badge">Gastronomy</span>
+                        </div>
+                        <div class="exp-body">
+                            <h3>The Royal Bhopali Food Trail</h3>
+                            <p>Savor authentic Bhopali specialties: fragrant Gosht Korma, rich Poha-Jalebi breakfast, Sulemani chai, and sweet Gulab Jamun at the historic Chowk.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================
+             CURATED TOURISM GALLERY
+        ========================================= -->
+        <section class="section gallery-section" id="gallery">
+            <div class="container">
+                <div class="section-head text-center">
+                    <span class="sub-tag">VISUAL ARCHIVE</span>
+                    <h2 class="section-title">Tourism Photo Gallery</h2>
+                    <p class="section-desc">Glimpse the breathtaking scenery, monuments, and cultural moments captured by travelers and administrators.</p>
+                </div>
+
+                <div class="gallery-grid" id="homeGalleryContainer">
+                    <div class="loading-state">
+                        <div class="spinner"></div>
+                        <p>Loading photo collection...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================
+             ABOUT BHOPAL STORYTELLING SECTION
+        ========================================= -->
+        <section class="section about-section" id="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-text-col">
+                        <span class="sub-tag">OUR ROOTS & LEGACY</span>
+                        <h2 class="section-title">The Storied History of Bhopal</h2>
+                        <div class="about-paragraphs">
+                            <p>
+                                Legend recounts that Bhopal was founded in the 11th century by the legendary Paramara King Raja Bhoj as <em>Bhojpal</em>, named after the colossal dam he engineered to construct the Upper Lake.
+                            </p>
+                            <p>
+                                In the early 18th century, Dost Mohammad Khan laid the foundations of modern Bhopal. It soon gained world renown for its golden era under the extraordinary <strong>Nawab Begums of Bhopal</strong> — Qudsia Begum, Sikandar Begum, Shah Jahan Begum, and Sultan Jahan Begum — who ruled with enlightened diplomacy, patronizing art, architecture, sanitation, education, and women's rights.
+                            </p>
+                            <p>
+                                Today, Bhopal stands as a gleaming synthesis: an administrative capital enriched by Bharat Bhavan and the National Museum of Mankind, flanked by untouched lakes and rolling Vindhya hills.
+                            </p>
+                        </div>
+                        <div class="about-badges">
+                            <div class="about-chip">👑 Begum Dynasty Heritage</div>
+                            <div class="about-chip">🏞️ Bhojtal Ramsar Wetland</div>
+                            <div class="about-chip">🎨 Bharat Bhavan Cultural Hub</div>
+                        </div>
+                    </div>
+                    <div class="about-media-col">
+                        <div class="about-card-banner">
+                            <div class="about-img-box">
+                                <img src="https://images.unsplash.com/photo-1596402184320-417e7178b2cd?auto=format&fit=crop&w=800&q=80" alt="Bhopal heritage monument" loading="lazy">
+                            </div>
+                            <div class="about-quote-tag">
+                                <strong>Ramsar Wetland Site</strong>
+                                <span>Upper Lake is an internationally designated haven for 20,000+ water birds.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================
+             TRAVEL TIPS & ESSENTIALS
+        ========================================= -->
+        <section class="section tips-section" id="tips">
+            <div class="container">
+                <div class="section-head text-center">
+                    <span class="sub-tag">PRACTICAL GUIDE</span>
+                    <h2 class="section-title">Traveler Essentials & Tips</h2>
+                    <p class="section-desc">Important guidance to make your visit comfortable, memorable, and safe.</p>
+                </div>
+
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <div class="tip-icon">🗓️</div>
+                        <h4>Best Season to Visit</h4>
+                        <p><strong>October to March</strong> offers pleasant daytime weather (18°C–25°C) and cool evenings, ideal for lake promenades and heritage walking tours.</p>
+                    </div>
+
+                    <div class="tip-card">
+                        <div class="tip-icon">🚆</div>
+                        <h4>How to Reach</h4>
+                        <p>Bhopal Junction and Rani Kamlapati World-Class Railway Station link directly to every major Indian metro. Raja Bhoj Airport offers daily domestic flights.</p>
+                    </div>
+
+                    <div class="tip-card">
+                        <div class="tip-icon">🛺</div>
+                        <h4>Getting Around</h4>
+                        <p>Bhopal features clean city bus services (BRTS), app cabs, and metered auto-rickshaws. Renting a bicycle for Van Vihar and Lake Road is highly recommended.</p>
+                    </div>
+
+                    <div class="tip-card">
+                        <div class="tip-icon">👗</div>
+                        <h4>Cultural Etiquette</h4>
+                        <p>When visiting sacred sites such as Taj-ul-Masajid or Bhojpur Temple, dress modestly with shoulders covered, and remove footwear before entering sanctums.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================
+             CONTACT & HELPLINE SECTION
+        ========================================= -->
+        <section class="section contact-section" id="contact">
+            <div class="container">
+                <div class="contact-card-wrap">
+                    <div class="contact-info-col">
+                        <span class="sub-tag">GET IN TOUCH</span>
+                        <h2 class="section-title text-white">We're Here to Help You Explore</h2>
+                        <p class="contact-desc">Have questions about itineraries, photography permissions, 3D guides, or tourist facilities? Contact our tourism department team.</p>
+
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="c-icon">📍</div>
+                                <div>
+                                    <strong>Tourist Information Centre</strong>
+                                    <span>Paryatan Bhawan, Bhadbhada Road, Bhopal - 462003</span>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="c-icon">📞</div>
+                                <div>
+                                    <strong>Toll-Free Tourist Helpline</strong>
+                                    <span>1800-233-7777 / +91 755 277 8383</span>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="c-icon">✉️</div>
+                                <div>
+                                    <strong>Official Support Email</strong>
+                                    <span>support@bhopaltourism.gov.in</span>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="c-icon">⏰</div>
+                                <div>
+                                    <strong>Information Centre Hours</strong>
+                                    <span>Monday – Saturday: 9:30 AM to 6:30 PM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-col">
+                        <form id="contactForm" class="tourism-form" onsubmit="handleContactSubmit(event)">
+                            <h3>Send Us an Inquiry</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Your Name</label>
+                                    <input type="text" id="contactName" placeholder="Rohan Sharma" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Email Address</label>
+                                    <input type="email" id="contactEmail" placeholder="rohan@example.com" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Subject / Interest</label>
+                                <select id="contactSubject">
+                                    <option value="General Tourism Inquiry">General Tourism Inquiry</option>
+                                    <option value="Heritage Tour Guidance">Heritage Tour Guidance</option>
+                                    <option value="Lake & Wildlife Permits">Lake & Wildlife Permits</option>
+                                    <option value="Photo/Media Contribution">Photo/Media Contribution</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Message</label>
+                                <textarea id="contactMessage" rows="4" placeholder="Tell us what you would like to know about visiting Bhopal..." required></textarea>
+                            </div>
+                            <button type="submit" class="submit-inquiry-btn">
+                                <span>Send Message</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                            </button>
+                            <div id="contactFeedback" class="form-feedback" style="display:none;"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================
+             FINAL CALL TO ACTION
+        ========================================= -->
+        <section class="section cta-section">
+            <div class="container text-center">
+                <div class="cta-box">
+                    <span class="cta-icon">✨</span>
+                    <h2>Ready to Experience Bhopal in Person?</h2>
+                    <p>Start planning your royal vacation today. Browse interactive 3D monuments, listen to audio guides, and explore curated destination routes.</p>
+                    <div class="cta-actions">
+                        <a href="#destinations" class="primary-cta-btn">Browse Destinations</a>
+                        <a href="/login" class="secondary-cta-btn">Sign In to Dashboard</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- =========================================
+         LIGHTBOX MODAL FOR GALLERY
+    ========================================= -->
+    <div class="lightbox-modal" id="lightboxModal" aria-hidden="true">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close preview">&times;</button>
+        <div class="lightbox-content">
+            <img src="" alt="Enlarged photo preview" id="lightboxImg">
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+        </div>
+    </div>
+
+    <!-- =========================================
+         PROFESSIONAL FOOTER
+    ========================================= -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col brand-col">
+                <a href="/" class="brand-logo footer-logo">
+                    <div class="logo-emblem">🏛️</div>
+                    <div class="logo-text">
+                        <span class="logo-title text-white">BHOPAL</span>
+                        <span class="logo-sub text-muted">City of Lakes Tourism</span>
+                    </div>
+                </a>
+                <p class="footer-summary">
+                    An official digital portal curated to showcase Bhopal's centuries-old architectural grandeur, serene lakeside waters, rich tribal legacy, and vibrant culinary arts.
+                </p>
+                <div class="social-links">
+                    <span class="social-chip">Facebook</span>
+                    <span class="social-chip">Instagram</span>
+                    <span class="social-chip">Twitter</span>
+                    <span class="social-chip">YouTube</span>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="#home">Home Portal</a></li>
+                    <li><a href="#explore">Explore Themes</a></li>
+                    <li><a href="#destinations">Popular Destinations</a></li>
+                    <li><a href="#experiences">Featured Experiences</a></li>
+                    <li><a href="#gallery">Tourism Gallery</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Heritage & Culture</h4>
+                <ul class="footer-links">
+                    <li><a href="#about">The Begums of Bhopal</a></li>
+                    <li><a href="#about">Bhojtal (Upper Lake)</a></li>
+                    <li><a href="#about">Taj-ul-Masajid</a></li>
+                    <li><a href="#tips">Travel Tips</a></li>
+                    <li><a href="/admin">Administrator Portal</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Newsletter & Updates</h4>
+                <p class="newsletter-desc">Subscribe to seasonal festivals, heritage walks, and MP tourism updates.</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to Bhopal Tourism updates!');">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Join</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="container footer-bottom-bar">
+            <p>© 2026 Bhopal Tourism Department, Government of Madhya Pradesh. All Rights Reserved.</p>
+            <div class="bottom-legal-links">
+                <a href="#home">Privacy Policy</a>
+                <span>•</span>
+                <a href="#home">Terms of Service</a>
+                <span>•</span>
+                <a href="/login">Admin Access</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JS -->
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+
+</body>
+</html>

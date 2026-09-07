@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destination Guide — Bhopal Tourism</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,500;1,600&display=swap" rel="stylesheet">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/destination.css') }}">
+</head>
+
+<body data-destination-id="{{ destination_id }}">
+
+    <!-- ================= NAVBAR ================= -->
+    <header class="navbar-wrapper">
+        <nav class="navbar container">
+            <a href="/" class="brand-logo">
+                <div class="logo-emblem">🏛️</div>
+                <div class="logo-text">
+                    <span class="logo-title">BHOPAL</span>
+                    <span class="logo-sub">City of Lakes</span>
+                </div>
+            </a>
+
+            <div class="nav-actions">
+                <a href="/#destinations" class="back-link">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m15 18-6-6 6-6"/></svg>
+                    <span>All Destinations</span>
+                </a>
+                <a href="/" class="nav-cta-btn">
+                    <span>Portal Home</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="destination-page">
+
+        <!-- IMMERSIVE HERO BANNER -->
+        <section class="dest-hero-section">
+            <div class="dest-hero-backdrop" id="destHeroBackdrop"></div>
+            <div class="dest-hero-overlay"></div>
+
+            <div class="container dest-hero-content">
+                <div class="dest-hero-pill">
+                    <span class="dest-pill-icon">📍</span>
+                    <span id="destCategoryBadge">Heritage Landmark</span>
+                </div>
+
+                <h1 id="destinationName" class="dest-hero-title">
+                    Loading Destination...
+                </h1>
+
+                <p id="destinationShortDescription" class="dest-hero-subtitle">
+                    Please wait while the destination information is retrieved.
+                </p>
+
+                <!-- QUICK INFO SPECIFICATION CARDS -->
+                <div class="dest-quick-specs" id="quickSpecsBar">
+                    <div class="spec-card">
+                        <span class="spec-icon">⏰</span>
+                        <div>
+                            <small>Visiting Hours</small>
+                            <strong id="specTimings">9:00 AM - 6:00 PM</strong>
+                        </div>
+                    </div>
+
+                    <div class="spec-card">
+                        <span class="spec-icon">🎟️</span>
+                        <div>
+                            <small>Entry Ticket</small>
+                            <strong id="specFee">Free / Nominal</strong>
+                        </div>
+                    </div>
+
+                    <div class="spec-card">
+                        <span class="spec-icon">🗓️</span>
+                        <div>
+                            <small>Best Season</small>
+                            <strong id="specBestTime">October to March</strong>
+                        </div>
+                    </div>
+
+                    <div class="spec-card">
+                        <span class="spec-icon">🗺️</span>
+                        <div>
+                            <small>Coordinates</small>
+                            <strong id="specCoords">23.25° N, 77.41° E</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MAIN DETAILS CONTENT -->
+        <div class="container dest-details-container">
+
+            <!-- ABOUT & HISTORY SECTION -->
+            <section class="dest-detail-card">
+                <div class="card-tag">OVERVIEW & HISTORY</div>
+                <h2 class="card-heading">About This Destination</h2>
+                <div class="dest-description-text" id="destinationDescription">
+                    Loading detailed historical description...
+                </div>
+            </section>
+
+            <!-- PHOTO GALLERY SECTION -->
+            <section class="media-section" id="photosSection">
+                <div class="section-title-wrap">
+                    <span class="sub-tag">PHOTOGRAPHY ARCHIVE</span>
+                    <h2>Destination Photo Gallery</h2>
+                    <p>High-resolution captures showcasing the architectural and natural beauty of this site.</p>
+                </div>
+
+                <div id="photoGallery" class="photo-gallery-grid">
+                    <div class="loading-state">
+                        <div class="spinner"></div>
+                        <p>Loading destination gallery...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3D VIRTUAL EXPLORER -->
+            <section class="media-section" id="modelSection">
+                <div class="section-title-wrap">
+                    <span class="sub-tag">VIRTUAL 3D ASSET</span>
+                    <h2>Interactive 3D Model Experience</h2>
+                    <p>Explore this landmark in full 3D. Click and drag to rotate, scroll to zoom in/out.</p>
+                </div>
+
+                <div class="model-viewer-box">
+                    <div id="modelContainer" class="model-canvas-wrap">
+                        <div class="loading-state">
+                            <div class="spinner"></div>
+                            <p>Loading 3D model asset...</p>
+                        </div>
+                    </div>
+                    <div class="model-controls-hint">
+                        <span>🖱️ Left-Click: Orbit / Rotate</span>
+                        <span>🔍 Scroll Wheel: Zoom</span>
+                        <span>🖱️ Right-Click: Pan</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- AUDIO GUIDE SECTION -->
+            <section class="media-section" id="audioSection">
+                <div class="section-title-wrap">
+                    <span class="sub-tag">AUDIO TOUR GUIDE</span>
+                    <h2>Narrated Audio Tour</h2>
+                    <p>Listen to historical narrations and cultural background while exploring.</p>
+                </div>
+
+                <div id="audioGallery" class="audio-cards-grid">
+                    <div class="loading-state">
+                        <div class="spinner"></div>
+                        <p>Loading audio guides...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- YOUTUBE VIDEO SECTION -->
+            <section class="media-section" id="videoSection">
+                <div class="section-title-wrap">
+                    <span class="sub-tag">DOCUMENTARIES & TOURS</span>
+                    <h2>Video Exploration</h2>
+                    <p>Watch video footage and documentaries from this site.</p>
+                </div>
+
+                <div id="videoGallery" class="video-cards-grid">
+                    <div class="loading-state">
+                        <div class="spinner"></div>
+                        <p>Loading video showcase...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- LEAFLET INTERACTIVE MAP -->
+            <section class="media-section" id="mapSection">
+                <div class="section-title-wrap">
+                    <span class="sub-tag">GEOGRAPHIC LOCATION</span>
+                    <h2>Find This Destination</h2>
+                    <p>Interactive OpenStreetMap indicating the exact location in Bhopal.</p>
+                </div>
+
+                <div class="map-container-box">
+                    <div id="destinationMap" class="dest-map-element"></div>
+                    <div class="map-footer-bar">
+                        <span id="mapCoordsLabel">Coordinates: Bhopal, Madhya Pradesh</span>
+                        <a id="googleDirectionsLink" href="#" target="_blank" rel="noopener" class="directions-btn">
+                            <span>Get Directions</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- RELATED DESTINATIONS -->
+            <section class="media-section" id="relatedSection">
+                <div class="section-title-wrap">
+                    <span class="sub-tag">CONTINUE YOUR JOURNEY</span>
+                    <h2>Nearby Attractions in Bhopal</h2>
+                    <p>Other remarkable destinations you may enjoy exploring.</p>
+                </div>
+
+                <div class="related-grid" id="relatedDestinations"></div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- PHOTO LIGHTBOX MODAL -->
+    <div id="imageModal" class="image-modal" aria-hidden="true">
+        <button id="closeModal" class="close-modal" aria-label="Close photo preview">&times;</button>
+        <div class="modal-inner">
+            <img id="modalImage" src="" alt="Enlarged destination view">
+            <div id="modalCaption" class="modal-caption"></div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-bottom-bar">
+            <p>© 2026 Bhopal Tourism Department. All Rights Reserved.</p>
+            <div class="bottom-legal-links">
+                <a href="/">Home</a>
+                <span>•</span>
+                <a href="/#destinations">All Destinations</a>
+                <span>•</span>
+                <a href="/login">Portal Login</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LEAFLET JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- THREE.JS IMPORT MAP -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+
+    <!-- DESTINATION JS CONTROLLER -->
+    <script type="module" src="{{ url_for('static', filename='js/destination.js') }}"></script>
+
+</body>
+</html>
