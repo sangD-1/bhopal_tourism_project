@@ -13,3 +13,7 @@ Stack: HTML + Tailwind CSS + JavaScript, Flask, MySQL, Leaflet/OpenStreetMap, Th
 6. Open http://127.0.0.1:5000
 
 The admin panel supports destination creation/editing, multiple photo uploads, YouTube links, GLB uploads, and audio uploads. Public destination pages show all media and an interactive map.
+
+## 🌐 Live Website
+
+[Visit Bhopal Tourism Website](https://bhopal-tourism-project.onrender.com)
