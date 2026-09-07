@@ -16,7 +16,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug.utils import secure_filename
 
 from backend.config import Config
-from db import execute_query, ensure_schema_columns
+from backend.db import execute_query, ensure_schema_columns
 
 
 # ==================================================
