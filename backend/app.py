@@ -15,7 +15,7 @@ import mysql.connector
 from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug.utils import secure_filename
 
-from config import Config
+from backend.config import Config
 from db import execute_query, ensure_schema_columns
 
 
