@@ -11,6 +11,15 @@ from flask import (
     send_from_directory
 )
 
+import cloudinary
+import cloudinary.uploader
+
+cloudinary.config(
+    cloud_name=os.environ.get("CLOUDINARY_CLOUD_NAME"),
+    api_key=os.environ.get("CLOUDINARY_API_KEY"),
+    api_secret=os.environ.get("CLOUDINARY_API_SECRET")
+)
+
 import mysql.connector
 from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug.utils import secure_filename
@@ -229,18 +238,20 @@ def youtube_embed_url(url):
 
 def upload_url(file_path):
     """
-    Convert database relative path:
+    Return the correct browser URL for uploaded media.
 
-        photos/example.jpg
-
-    into browser URL:
-
-        /uploads/photos/example.jpg
+    - Cloudinary URLs are returned directly.
+    - Existing local upload paths are converted to /uploads/...
     """
 
     if not file_path:
         return None
 
+    # If the file is already hosted on Cloudinary
+    if file_path.startswith("http://") or file_path.startswith("https://"):
+        return file_path
+
+    # Existing local upload path
     return f"/uploads/{file_path}"
 
 
@@ -1204,19 +1215,21 @@ def upload_photo(destination_id):
         file.filename
     )
 
-    file.save(
-        os.path.join(
-            PHOTO_FOLDER,
-            filename
-        )
+    upload_result = cloudinary.uploader.upload(
+        file,
+        resource_type="image",
+        folder="bhopal_tourism/photos",
+        public_id=os.path.splitext(filename)[0]
     )
+
+    cloudinary_url = upload_result["secure_url"]
 
     title = request.form.get(
         "title",
         ""
     ).strip()
 
-    relative_path = f"photos/{filename}"
+    relative_path = cloudinary_url
 
     photo_id = execute_query(
         """
@@ -1240,7 +1253,7 @@ def upload_photo(destination_id):
         "message": "Photo uploaded",
         "id": photo_id,
         "file_path": relative_path,
-        "url": upload_url(relative_path)
+        "url": relative_path
     })
 
 
@@ -1442,19 +1455,21 @@ def upload_model(destination_id):
         file.filename
     )
 
-    file.save(
-        os.path.join(
-            MODEL_FOLDER,
-            filename
-        )
+    upload_result = cloudinary.uploader.upload(
+        file,
+        resource_type="raw",
+        folder="bhopal_tourism/models",
+        public_id=os.path.splitext(filename)[0]
     )
+
+    cloudinary_url = upload_result["secure_url"]
 
     title = request.form.get(
         "title",
         ""
     ).strip()
 
-    relative_path = f"models/{filename}"
+    relative_path = cloudinary_url
 
     model_id = execute_query(
         """
@@ -1478,7 +1493,7 @@ def upload_model(destination_id):
         "message": "3D model uploaded",
         "id": model_id,
         "file_path": relative_path,
-        "url": upload_url(relative_path)
+        "url": relative_path
     })
 
 
@@ -1566,12 +1581,14 @@ def upload_audio(destination_id):
         file.filename
     )
 
-    file.save(
-        os.path.join(
-            AUDIO_FOLDER,
-            filename
-        )
+    upload_result = cloudinary.uploader.upload(
+        file,
+        resource_type="video",
+        folder="bhopal_tourism/audio",
+        public_id=os.path.splitext(filename)[0]
     )
+
+    cloudinary_url = upload_result["secure_url"]
 
     title = request.form.get(
         "title",
@@ -1583,7 +1600,7 @@ def upload_audio(destination_id):
         "English"
     ).strip()
 
-    relative_path = f"audio/{filename}"
+    relative_path = cloudinary_url
 
     audio_id = execute_query(
         """
@@ -1609,7 +1626,7 @@ def upload_audio(destination_id):
         "message": "Audio guide uploaded",
         "id": audio_id,
         "file_path": relative_path,
-        "url": upload_url(relative_path)
+        "url": relative_path
     })
 
 
