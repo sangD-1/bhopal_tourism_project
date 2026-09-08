@@ -2,13 +2,13 @@
 
 An interactive tourism web application designed to showcase the **heritage, culture, nature, museums, monuments and tourist attractions of Bhopal, Madhya Pradesh** through multimedia content and interactive 3D experiences.
 
-## 🌐 Live Website
+# 🌐 Live Website
 
 **[Visit Bhopal Tourism Website](https://bhopal-tourism-project.onrender.com/)**
 
 ---
 
-## 📌 About the Project
+# About the Project
 
 Bhopal Tourism Multimedia App is a full-stack web application that provides an interactive platform for exploring important tourist destinations in Bhopal.
 
@@ -26,9 +26,9 @@ The main objective is to provide tourists with an engaging digital experience fo
 
 ---
 
-## ✨ Key Features
+# Key Features
 
-### 🏛️ Destination Exploration
+# Destination Exploration
 
 * Detailed information about tourist destinations
 * Destination descriptions
@@ -36,13 +36,13 @@ The main objective is to provide tourists with an engaging digital experience fo
 * Timings, entry fee and best visiting time
 * Related destinations
 
-### 🧊 Interactive 3D Models
+# Interactive 3D Models
 
 Selected destinations include interactive **GLB 3D models** that can be explored directly through the website.
 
 The models include landmarks, architecture, environmental elements and tourism-related details to provide a more immersive experience.
 
-### 📸 Multimedia Gallery
+# Multimedia Gallery
 
 Each destination can contain multiple types of media:
 
@@ -51,19 +51,19 @@ Each destination can contain multiple types of media:
 * Audio guides
 * 3D models
 
-### 🎧 Audio Guide
+# Audio Guide
 
 Visitors can listen to audio content associated with destinations directly from the website.
 
-### 🎥 Video Integration
+# Video Integration
 
 YouTube videos can be linked to destinations to provide additional visual information.
 
-### 🗺️ Interactive Map
+# Interactive Map
 
 The application uses **Leaflet and OpenStreetMap** to display destination locations and geographical coordinates.
 
-### 👨‍💼 Admin Dashboard
+# Admin Dashboard
 
 The admin panel allows authorized administrators to:
 
@@ -78,7 +78,7 @@ The admin panel allows authorized administrators to:
 
 ---
 
-## 📍 Featured Destinations
+# Featured Destinations
 
 The application currently contains multiple important tourist destinations of Bhopal, including:
 
@@ -94,9 +94,9 @@ The application currently contains multiple important tourist destinations of Bh
 
 ---
 
-## 🛠️ Technology Stack
+# Technology Stack
 
-### Frontend
+# Frontend
 
 * HTML5
 * Tailwind CSS
@@ -105,29 +105,29 @@ The application currently contains multiple important tourist destinations of Bh
 * Leaflet
 * OpenStreetMap
 
-### Backend
+# Backend
 
 * Python
 * Flask
 * Gunicorn
 
-### Database
+# Database
 
 * MySQL
 * Aiven Cloud
 
-### Media Storage
+# Media Storage
 
 * Cloudinary
 
-### Deployment
+# Deployment
 
 * GitHub
 * Render
 
 ---
 
-## 🏗️ Project Architecture
+# Project Architecture
 
 ```text
 Bhopal Tourism Multimedia App
@@ -155,7 +155,7 @@ Bhopal Tourism Multimedia App
 
 ---
 
-## 📂 Project Structure
+# Project Structure
 
 ```text
 bhopal_tourism/
@@ -181,22 +181,22 @@ bhopal_tourism/
 
 ---
 
-## 🚀 Running the Project Locally
+# Running the Project Locally
 
-### 1. Clone the repository
+# 1. Clone the repository
 
 ```bash
 git clone https://github.com/sangD-1/bhopal_tourism_project.git
 cd bhopal_tourism_project
 ```
 
-### 2. Install dependencies
+# 2. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Configure MySQL
+# 3. Configure MySQL
 
 Create/configure the MySQL database and run:
 
@@ -214,13 +214,13 @@ DB_PASSWORD
 DB_DATABASE
 ```
 
-### 4. Run the application
+# 4. Run the application
 
 ```bash
 python backend/app.py
 ```
 
-### 5. Open in browser
+# 5. Open in browser
 
 ```text
 http://127.0.0.1:5000
@@ -228,7 +228,7 @@ http://127.0.0.1:5000
 
 ---
 
-## 🔐 Admin Panel
+# Admin Panel
 
 The application includes a secure admin dashboard for managing tourism content.
 
@@ -240,7 +240,7 @@ This allows the tourism portal to be updated without modifying the frontend code
 
 ---
 
-## ☁️ Cloud Deployment
+# Cloud Deployment
 
 The application is deployed using:
 
@@ -253,7 +253,7 @@ The application is deployed using:
 
 ---
 
-## 🎯 Project Objective
+# Project Objective
 
 The goal of the project is to create a modern digital tourism platform for Bhopal that goes beyond static text and images.
 
@@ -261,7 +261,7 @@ By combining **interactive maps, multimedia content, audio guides and 3D visuali
 
 ---
 
-## 🔮 Future Scope
+# Future Scope
 
 Possible future improvements include:
 
@@ -276,7 +276,7 @@ Possible future improvements include:
 
 ---
 
-## 👩‍💻 Developer
+# Developer
 
 **Sangeeta Dhurve**
 0801IT231114
@@ -287,11 +287,11 @@ B.tech - Information Technology
 
 ---
 
-## 📜 License
+# License
 
 This project is developed for educational and academic purposes.
 
 
-## 🌐 Live Website
+#  Live Website
 
 [Visit Bhopal Tourism Website](https://bhopal-tourism-project.onrender.com)
