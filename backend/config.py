@@ -6,7 +6,7 @@ class Config:
 
     MYSQL_HOST = os.environ.get("DB_HOST", "127.0.0.1")
     MYSQL_USER = os.environ.get("DB_USER", "root")
-    MYSQL_PASSWORD = os.environ.get("DB_PASSWORD", "sangeeta1234+-")
+    MYSQL_PASSWORD = os.environ.get("DB_PASSWORD", " ")
     MYSQL_DATABASE = os.environ.get("DB_DATABASE", "defaultdb")
     MYSQL_PORT = int(os.environ.get("DB_PORT", 3306))
 
