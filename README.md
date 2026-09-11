@@ -1,4 +1,4 @@
-# Bhopal Tourism Multimedia App
+# Madhya Pradesh Tourism Multimedia App
 
 An interactive tourism web application designed to showcase the **heritage, culture, nature, museums, monuments and tourist attractions of Bhopal, Madhya Pradesh** through multimedia content and interactive 3D experiences.
 
